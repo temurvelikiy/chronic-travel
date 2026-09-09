@@ -138,6 +138,8 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1
 .header__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 
 .logo { display: inline-flex; align-items: center; gap: 10px; color: #fff; font-weight: 800; }
+.logo__img { height: 52px; width: auto; display: block; transition: height .3s; }
+.header.scrolled .logo__img { height: 44px; }
 .logo__mark {
     display: grid; place-items: center;
     width: 40px; height: 40px;
@@ -229,17 +231,75 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1
     align-items: center;
     color: #fff;
     background:
-        linear-gradient(rgba(3, 43, 43, 0.55), rgba(3, 43, 43, 0.82)),
-        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
-    padding: 120px 0 60px;
-    transition: background-image .4s ease;
+        radial-gradient(1100px 600px at 80% 10%, rgba(212, 175, 55, 0.16), transparent 60%),
+        linear-gradient(160deg, #053b3b 0%, var(--green) 52%, #021a1a 100%);
+    padding: 130px 0 70px;
+    overflow: hidden;
 }
 [data-theme="dark"] .hero {
     background:
-        linear-gradient(rgba(2, 16, 16, 0.74), rgba(2, 16, 16, 0.92)),
-        url('https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+        radial-gradient(1100px 600px at 80% 10%, rgba(212, 175, 55, 0.22), transparent 60%),
+        linear-gradient(160deg, #032727 0%, #021616 52%, #010e0e 100%);
 }
-.hero__content { max-width: 760px; }
+.hero__glow {
+    position: absolute; right: -6%; top: -14%;
+    width: 540px; height: 540px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.22), transparent 65%);
+    pointer-events: none;
+}
+.hero__inner {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 54px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+.hero__left { max-width: 620px; }
+
+/* O'ng tomon — egri plaj paneli */
+.hero__visual { position: relative; }
+.hero__photo {
+    position: relative;
+    z-index: 1;
+    aspect-ratio: 4 / 5;
+    border-radius: 280px 34px 34px 280px;
+    background: url('https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1000&q=80') center/cover;
+    box-shadow: 0 40px 85px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    transition: background-image .4s ease;
+}
+[data-theme="dark"] .hero__photo {
+    background: url('https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1000&q=80') center/cover;
+    box-shadow: 0 40px 85px rgba(0, 0, 0, 0.65), inset 0 0 0 1px rgba(212, 175, 55, 0.18);
+}
+.hero__arc {
+    position: absolute;
+    z-index: 0;
+    inset: -16px;
+    border: 2px solid var(--gold);
+    border-radius: 300px 48px 48px 300px;
+    opacity: 0.7;
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.25);
+}
+.hero__chip {
+    position: absolute;
+    z-index: 2;
+    left: -24px;
+    bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(3, 43, 43, 0.92);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    padding: 12px 18px;
+    border-radius: 16px;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+}
+.hero__chip-ico { font-size: 1.6rem; }
+.hero__chip-txt { display: flex; flex-direction: column; font-size: 0.8rem; color: rgba(255, 255, 255, 0.78); line-height: 1.35; }
+.hero__chip-txt strong { color: #fff; font-size: 0.95rem; }
 .hero__eyebrow {
     display: inline-block;
     color: var(--gold);
@@ -501,8 +561,14 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1
 @media (max-width: 960px) {
     .about__grid, .contact__grid { grid-template-columns: 1fr; gap: 40px; }
     .footer__grid { grid-template-columns: 1fr 1fr; }
-    .hero { background-attachment: scroll; }
     .license__figure { max-width: 360px; }
+    .hero__inner { grid-template-columns: 1fr; gap: 44px; }
+    .hero__left { max-width: none; order: 2; }
+    .hero__visual { order: 1; }
+    .hero__photo { aspect-ratio: 16 / 11; border-radius: 34px; max-width: 520px; margin: 0 auto; }
+    .hero__arc { border-radius: 46px; inset: -12px; }
+    .hero__chip { left: 14px; bottom: 16px; }
+    .hero__glow { right: -30%; }
 }
 
 @media (max-width: 760px) {
