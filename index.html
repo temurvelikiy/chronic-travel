@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chronic Travel — Malaysia, Thailand, Vietnam, Maldiv va boshqa yo'nalishlarga hashamatli sayohatlar.">
+    <title>Chronic Travel — Sayohatlaringiz biz bilan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header class="header" id="header">
+        <div class="container header__inner">
+            <a href="#home" class="logo">
+                <span class="logo__mark">✈</span>
+                <span class="logo__text">Chronic<span>Travel</span></span>
+            </a>
+
+            <nav class="nav" id="nav">
+                <ul class="nav__list">
+                    <li><a href="#home" class="nav__link" data-i18n="nav_home">Bosh sahifa</a></li>
+                    <li><a href="#tours" class="nav__link" data-i18n="nav_tours">Turlar</a></li>
+                    <li><a href="#about" class="nav__link" data-i18n="nav_about">Biz haqimizda</a></li>
+                    <li><a href="#contact" class="nav__link" data-i18n="nav_contact">Aloqa</a></li>
+                    <li class="nav__lang">
+                        <div class="lang" role="group" aria-label="Til">
+                            <button class="lang__btn" data-lang="uz">UZ</button>
+                            <button class="lang__btn" data-lang="ru">RU</button>
+                            <button class="lang__btn" data-lang="en">EN</button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <button class="theme-toggle" id="themeToggle" aria-label="Tema" title="Light / Dark">
+                <span class="theme-toggle__icon">🌙</span>
+            </button>
+
+            <div class="header__book">
+                <a href="#contact" class="btn btn--gold header__cta" data-i18n="header_cta">Bron qilish</a>
+                <a href="tel:+998776886600" class="header__phone">+998 77 688 66 00</a>
+            </div>
+
+            <button class="nav__toggle" id="navToggle" aria-label="Menyu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+        <div class="container hero__content">
+            <p class="hero__eyebrow" data-reveal data-i18n="hero_eyebrow">Dunyo sizni kutmoqda</p>
+            <h1 class="hero__title" data-reveal data-i18n-html="hero_title">
+                Orzuingizdagi sayohat <span>Chronic Travel</span> bilan boshlanadi
+            </h1>
+            <p class="hero__text" data-reveal data-i18n="hero_text">
+                Malaysia, Thailand, Vietnam va Maldivga qulay narxlarda hashamatli turlar.
+                Litsenziyalangan kompaniya — ishonchli xizmat, kafolatlangan qulaylik.
+            </p>
+            <div class="hero__actions" data-reveal>
+                <a href="#tours" class="btn btn--gold" data-i18n="hero_cta1">Turlarni ko'rish</a>
+                <a href="#contact" class="btn btn--outline" data-i18n="hero_cta2">Bepul konsultatsiya</a>
+            </div>
+
+            <div class="hero__stats" data-reveal>
+                <div class="stat">
+                    <span class="stat__num" data-count="5" data-suffix="+">0</span>
+                    <span class="stat__label" data-i18n="stat_exp">Yil tajriba</span>
+                </div>
+                <div class="stat">
+                    <span class="stat__num" data-count="1000" data-suffix="+">0</span>
+                    <span class="stat__label" data-i18n="stat_travelers">Sayohatchi</span>
+                </div>
+                <div class="stat">
+                    <span class="stat__num" data-count="15" data-suffix="+">0</span>
+                    <span class="stat__label" data-i18n="stat_dest">Yo'nalish</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TOURS ============ -->
+    <section class="section tours" id="tours">
+        <div class="container">
+            <div class="section__head" data-reveal>
+                <p class="section__eyebrow" data-i18n="tours_eyebrow">Bizning takliflar</p>
+                <h2 class="section__title" data-i18n="tours_title">Mashhur turlar va xizmatlar</h2>
+                <p class="section__lead" data-i18n="tours_lead">Har bir tur — sizning qulayligingiz uchun puxta tanlangan. Aviabilet, mehmonxona va transfer narxga kiritilgan.</p>
+            </div>
+
+            <div class="tours__grid" id="toursGrid"><!-- JS orqali to'ldiriladi --></div>
+        </div>
+    </section>
+
+    <!-- ============ ABOUT & LICENSE ============ -->
+    <section class="section about" id="about">
+        <div class="container about__grid">
+            <div class="about__text" data-reveal>
+                <p class="section__eyebrow" data-i18n="about_eyebrow">Biz haqimizda</p>
+                <h2 class="section__title" data-i18n="about_title">Ishonch bilan sayohat qiling</h2>
+                <p data-i18n-html="about_p">
+                    <strong>Chronic Travel</strong> — O'zbekiston bozorida faoliyat yuritayotgan
+                    rasmiy turistik operator. Biz mijozlarimizga eng qulay narxlarda yuqori sifatli
+                    xizmat taqdim etamiz. Har bir sayohat individual yondashuv asosida tashkil etiladi.
+                </p>
+                <ul class="about__list">
+                    <li data-i18n="about_li1">Rasmiy litsenziyalangan turoperator</li>
+                    <li data-i18n="about_li2">24/7 qo'llab-quvvatlash xizmati</li>
+                    <li data-i18n="about_li3">Kafolatlangan mehmonxona va aviabiletlar</li>
+                    <li data-i18n="about_li4">Tajribali gid va hamrohlar</li>
+                </ul>
+                <a href="#contact" class="btn btn--gold" data-i18n="about_cta">Biz bilan bog'laning</a>
+            </div>
+
+            <aside class="license" data-reveal>
+                <figure class="license__figure">
+                    <img src="images/litsenziya.png" alt="Chronic Travel guvohnoma / litsenziya" loading="lazy">
+                    <figcaption class="license__cap">
+                        <span data-i18n="lic_cap">Rasmiy guvohnoma</span>
+                        <strong>№ 6721665 — STIR: 313 055 675</strong>
+                    </figcaption>
+                </figure>
+            </aside>
+        </div>
+    </section>
+
+    <!-- ============ CONTACT / ORDER ============ -->
+    <section class="section contact" id="contact">
+        <div class="container contact__grid">
+            <div class="contact__info" data-reveal>
+                <p class="section__eyebrow" data-i18n="contact_eyebrow">Aloqa</p>
+                <h2 class="section__title" data-i18n="contact_title">Buyurtma qoldiring</h2>
+                <p class="contact__lead" data-i18n="contact_lead">Formani to'ldiring — menejerimiz 15 daqiqa ichida siz bilan bog'lanadi va barcha savollaringizga javob beradi.</p>
+                <ul class="contact__list">
+                    <li><span>📞</span> <a href="tel:+998776886600">+998 77 688 66 00</a></li>
+                    <li><span>✈️</span> <a href="https://t.me/MyTripChronic" target="_blank" rel="noopener">@MyTripChronic</a></li>
+                    <li><span>📍</span> <span data-i18n="contact_addr">Surxondaryo vil., Denov tumani, Shifokorlar ko'chasi, 94A</span></li>
+                    <li><span>🕒</span> <span data-i18n="contact_hours">Har kuni: 09:00 – 20:00</span></li>
+                </ul>
+            </div>
+
+            <form class="order-form" id="orderForm" novalidate data-reveal>
+                <div class="field">
+                    <label for="name" data-i18n="form_name">Ismingiz</label>
+                    <input type="text" id="name" name="name" data-i18n-ph="form_name_ph" placeholder="Masalan: Ali Valiyev" required>
+                    <small class="field__error"></small>
+                </div>
+                <div class="field">
+                    <label for="phone" data-i18n="form_phone">Telefon raqamingiz</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+998 __ ___ __ __" required>
+                    <small class="field__error"></small>
+                </div>
+                <div class="field">
+                    <label for="tour" data-i18n="form_tour">Qaysi tur / yo'nalish?</label>
+                    <input type="text" id="tour" name="tour" data-i18n-ph="form_tour_ph" placeholder="Masalan: Thailand — Phuket" required>
+                    <small class="field__error"></small>
+                </div>
+                <button type="submit" class="btn btn--gold btn--block" data-i18n="form_submit">Buyurtmani yuborish</button>
+                <p class="order-form__success" id="formSuccess" hidden data-i18n="form_success">✅ Rahmat! Arizangiz qabul qilindi. Tez orada bog'lanamiz.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container footer__grid">
+            <div class="footer__col">
+                <a href="#home" class="logo logo--light">
+                    <span class="logo__mark">✈</span>
+                    <span class="logo__text">Chronic<span>Travel</span></span>
+                </a>
+                <p class="footer__about" data-i18n="footer_about">Dunyo bo'ylab ishonchli va hashamatli sayohatlar. Sizning qulayligingiz — bizning ustuvor vazifamiz.</p>
+            </div>
+
+            <div class="footer__col">
+                <h4 data-i18n="footer_req_title">Rekvizitlar</h4>
+                <ul class="footer__list">
+                    <li>"CHRONIC TRAVEL" MCHJ</li>
+                    <li data-i18n="footer_req_stir">STIR: 313 055 675</li>
+                    <li data-i18n="footer_req_lic">Guvohnoma № 6721665</li>
+                    <li data-i18n="footer_req_addr">Surxondaryo vil., Denov tumani, Shifokorlar ko'ch., 94A</li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h4 data-i18n="footer_menu_title">Menyu</h4>
+                <ul class="footer__list footer__list--links">
+                    <li><a href="#tours" data-i18n="nav_tours">Turlar</a></li>
+                    <li><a href="#about" data-i18n="nav_about">Biz haqimizda</a></li>
+                    <li><a href="#contact" data-i18n="nav_contact">Aloqa</a></li>
+                    <li><a href="#offer" data-i18n="footer_offer">Ommaviy oferta</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h4 data-i18n="footer_social_title">Ijtimoiy tarmoqlar</h4>
+                <div class="socials">
+                    <a href="https://www.instagram.com/my.tripchronic" target="_blank" rel="noopener" aria-label="Instagram" class="social social--ig">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.52.01-4.76.07-.9.04-1.39.2-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.12.32-.28.81-.32 1.71-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.04.9.2 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.12.81.28 1.71.32 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c.9-.04 1.39-.2 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.12-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.04-.9-.2-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.12-.81-.28-1.71-.32-1.24-.06-1.61-.07-4.76-.07zm0 2.76a5.3 5.3 0 1 1 0 10.6 5.3 5.3 0 0 1 0-10.6zm0 1.62a3.68 3.68 0 1 0 0 7.36 3.68 3.68 0 0 0 0-7.36zm5.5-1.62a1.24 1.24 0 1 1-2.48 0 1.24 1.24 0 0 1 2.48 0z"/></svg>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://t.me/Chronictravel" target="_blank" rel="noopener" aria-label="Telegram" class="social social--tg">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M9.78 15.6l-.4 4.36c.57 0 .82-.24 1.12-.54l2.68-2.55 5.56 4.06c1.02.56 1.75.27 2.02-.94l3.66-17.1.001-.001c.32-1.5-.55-2.09-1.55-1.72L1.16 9.28C-.3 9.86-.28 10.68.9 11.05l5.4 1.68L18.8 4.9c.6-.4 1.14-.18.7.22"/></svg>
+                        <span>Telegram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <div class="container footer__bottom-inner">
+                <p>© <span id="year"></span> Chronic Travel. <span data-i18n="footer_rights">Barcha huquqlar himoyalangan.</span></p>
+                <a href="#offer" class="footer__offer" data-i18n="footer_offer">Ommaviy oferta</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ TOUR MODAL ============ -->
+    <div class="modal" id="tourModal" hidden>
+        <div class="modal__backdrop" data-close></div>
+        <div class="modal__box" role="dialog" aria-modal="true">
+            <button class="modal__close" data-close aria-label="Yopish">✕</button>
+            <div class="modal__media"><img id="modalImg" src="" alt=""></div>
+            <div class="modal__body">
+                <span class="modal__badge" id="modalBadge"></span>
+                <h3 class="modal__title" id="modalTitle"></h3>
+                <p class="modal__meta" id="modalMeta"></p>
+                <p class="modal__desc" id="modalDesc"></p>
+                <ul class="modal__list" id="modalList"></ul>
+                <div class="modal__foot">
+                    <span class="modal__price" id="modalPrice"></span>
+                    <a href="https://t.me/MyTripChronic" target="_blank" rel="noopener" class="btn btn--gold" id="modalBook" data-i18n="btn_book">Bron qilish</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://t.me/MyTripChronic" class="float-btn" aria-label="Telegram orqali yozish" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M9.78 15.6l-.4 4.36c.57 0 .82-.24 1.12-.54l2.68-2.55 5.56 4.06c1.02.56 1.75.27 2.02-.94l3.66-17.1c.32-1.5-.55-2.09-1.55-1.72L1.16 9.28C-.3 9.86-.28 10.68.9 11.05l5.4 1.68L18.8 4.9c.6-.4 1.14-.18.7.22"/></svg>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
