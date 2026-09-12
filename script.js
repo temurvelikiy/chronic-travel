@@ -465,6 +465,33 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Escape') closeModal();
     });
 
+    /* Kursor parallaks (hero) — faqat sichqoncha yurganda */
+    const heroBg = document.getElementById('heroBg');
+    const heroContent = document.getElementById('heroContent');
+    const heroEl = document.getElementById('home');
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (heroEl && heroBg && finePointer && !reduceMotion) {
+        let raf = null, tx = 0, ty = 0;
+        heroBg.style.transform = 'scale(1.06)';
+        const apply = () => {
+            heroBg.style.transform = `scale(1.06) translate(${tx * 22}px, ${ty * 16}px)`;
+            if (heroContent) heroContent.style.transform = `translate(${tx * -10}px, ${ty * -6}px)`;
+            raf = null;
+        };
+        heroEl.addEventListener('mousemove', (e) => {
+            const r = heroEl.getBoundingClientRect();
+            tx = (e.clientX - r.left) / r.width - 0.5;
+            ty = (e.clientY - r.top) / r.height - 0.5;
+            if (!raf) raf = requestAnimationFrame(apply);
+        });
+        heroEl.addEventListener('mouseleave', () => {
+            tx = 0; ty = 0;
+            heroBg.style.transform = 'scale(1.06)';
+            if (heroContent) heroContent.style.transform = 'none';
+        });
+    }
+
     /* Forma */
     const form = document.getElementById('orderForm');
     const success = document.getElementById('formSuccess');

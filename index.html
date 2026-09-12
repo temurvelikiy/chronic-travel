@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -52,44 +52,34 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero" id="home">
-        <div class="hero__glow" aria-hidden="true"></div>
-        <div class="container hero__inner">
-            <div class="hero__left">
-                <p class="hero__eyebrow" data-reveal data-i18n="hero_eyebrow">Dunyo sizni kutmoqda</p>
-                <h1 class="hero__title" data-reveal data-i18n-html="hero_title">
-                    Orzuingizdagi sayohat <span>Chronic Travel</span> bilan boshlanadi
-                </h1>
-                <p class="hero__text" data-reveal data-i18n="hero_text">
-                    Malaysia, Thailand, Vietnam va Maldivga qulay narxlarda hashamatli turlar.
-                    Litsenziyalangan kompaniya — ishonchli xizmat, kafolatlangan qulaylik.
-                </p>
-                <div class="hero__actions" data-reveal>
-                    <a href="#tours" class="btn btn--gold" data-i18n="hero_cta1">Turlarni ko'rish</a>
-                    <a href="#contact" class="btn btn--outline" data-i18n="hero_cta2">Bepul konsultatsiya</a>
-                </div>
-
-                <div class="hero__stats" data-reveal>
-                    <div class="stat">
-                        <span class="stat__num" data-count="5" data-suffix="+">0</span>
-                        <span class="stat__label" data-i18n="stat_exp">Yil tajriba</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat__num" data-count="1000" data-suffix="+">0</span>
-                        <span class="stat__label" data-i18n="stat_travelers">Sayohatchi</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat__num" data-count="15" data-suffix="+">0</span>
-                        <span class="stat__label" data-i18n="stat_dest">Yo'nalish</span>
-                    </div>
-                </div>
+        <div class="hero__bg" id="heroBg" aria-hidden="true"></div>
+        <div class="hero__scrim" aria-hidden="true"></div>
+        <div class="container hero__content" id="heroContent">
+            <p class="hero__eyebrow" data-reveal data-i18n="hero_eyebrow">Dunyo sizni kutmoqda</p>
+            <h1 class="hero__title" data-reveal data-i18n-html="hero_title">
+                Orzuingizdagi sayohat <span>Chronic Travel</span> bilan boshlanadi
+            </h1>
+            <p class="hero__text" data-reveal data-i18n="hero_text">
+                Malaysia, Thailand, Vietnam va Maldivga qulay narxlarda hashamatli turlar.
+                Litsenziyalangan kompaniya — ishonchli xizmat, kafolatlangan qulaylik.
+            </p>
+            <div class="hero__actions" data-reveal>
+                <a href="#tours" class="btn btn--gold" data-i18n="hero_cta1">Turlarni ko'rish</a>
+                <a href="#contact" class="btn btn--outline" data-i18n="hero_cta2">Bepul konsultatsiya</a>
             </div>
 
-            <div class="hero__visual" data-reveal aria-hidden="true">
-                <span class="hero__arc"></span>
-                <div class="hero__photo"></div>
-                <div class="hero__chip">
-                    <span class="hero__chip-ico">🏝</span>
-                    <span class="hero__chip-txt"><strong>Tropik yo'nalishlar</strong>Malaysia · Thailand · Bali</span>
+            <div class="hero__stats" data-reveal>
+                <div class="stat">
+                    <span class="stat__num" data-count="5" data-suffix="+">0</span>
+                    <span class="stat__label" data-i18n="stat_exp">Yil tajriba</span>
+                </div>
+                <div class="stat">
+                    <span class="stat__num" data-count="1000" data-suffix="+">0</span>
+                    <span class="stat__label" data-i18n="stat_travelers">Sayohatchi</span>
+                </div>
+                <div class="stat">
+                    <span class="stat__num" data-count="15" data-suffix="+">0</span>
+                    <span class="stat__label" data-i18n="stat_dest">Yo'nalish</span>
                 </div>
             </div>
         </div>
@@ -255,6 +245,6 @@
         <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M9.78 15.6l-.4 4.36c.57 0 .82-.24 1.12-.54l2.68-2.55 5.56 4.06c1.02.56 1.75.27 2.02-.94l3.66-17.1c.32-1.5-.55-2.09-1.55-1.72L1.16 9.28C-.3 9.86-.28 10.68.9 11.05l5.4 1.68L18.8 4.9c.6-.4 1.14-.18.7.22"/></svg>
     </a>
 
-    <script src="script.js?v=2"></script>
+    <script src="script.js?v=3"></script>
 </body>
 </html>
