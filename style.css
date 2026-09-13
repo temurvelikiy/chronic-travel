@@ -8,6 +8,8 @@
     --green: #032B2B;
     --green-2: #064040;
     --green-3: #0a5555;
+    --teal-deep: #04272B;
+    --sand: #F7F5EC;
     --gold: #D4AF37;
     --gold-light: #e5c463;
 
@@ -231,6 +233,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1
     display: flex;
     align-items: center;
     color: #fff;
+    background-color: var(--teal-deep);
     padding: 140px 0 90px;
     overflow: hidden;
 }
@@ -254,14 +257,14 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1
     inset: 0;
     z-index: 1;
     background:
-        linear-gradient(90deg, rgba(3, 34, 34, 0.80) 0%, rgba(3, 34, 34, 0.42) 42%, rgba(3, 34, 34, 0.06) 70%, transparent 100%),
-        linear-gradient(to top, rgba(2, 20, 20, 0.55), transparent 46%);
+        linear-gradient(90deg, rgba(4, 39, 43, 0.82) 0%, rgba(4, 39, 43, 0.44) 42%, rgba(4, 39, 43, 0.06) 70%, transparent 100%),
+        linear-gradient(to top, #04272B 0%, rgba(4, 39, 43, 0.72) 16%, transparent 52%);
     pointer-events: none;
 }
 [data-theme="dark"] .hero__scrim {
     background:
         linear-gradient(90deg, rgba(24, 10, 4, 0.82) 0%, rgba(40, 16, 6, 0.46) 42%, rgba(60, 26, 10, 0.12) 72%, transparent 100%),
-        linear-gradient(to top, rgba(12, 5, 2, 0.62), transparent 48%);
+        linear-gradient(to top, #0b0503 0%, rgba(16, 7, 3, 0.72) 16%, transparent 52%);
 }
 .hero__content {
     position: relative;
@@ -312,6 +315,86 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1
 }
 .section__head .section__title::after { margin-left: auto; margin-right: auto; }
 .section__lead { color: var(--muted); font-size: 1.05rem; }
+
+/* ---------- Instagram (gorizontal, qum rangida) ---------- */
+.insta { background: var(--sand); color: #16302f; }
+.insta .section__title { color: var(--teal-deep); }
+.insta__eyebrow { color: #b7902a; display: inline-flex; align-items: center; gap: 8px; justify-content: center; }
+.insta__eyebrow svg { color: #C13584; }
+.insta__row {
+    display: grid;
+    grid-template-columns: minmax(300px, 380px) 1fr;
+    gap: 30px;
+    align-items: stretch;
+}
+.insta__card {
+    background: #fff;
+    border-radius: 22px;
+    padding: 26px;
+    box-shadow: 0 20px 50px rgba(4, 39, 43, 0.12);
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    border: 1px solid rgba(4, 39, 43, 0.06);
+}
+.insta__avatar {
+    flex: none;
+    width: 88px; height: 88px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+}
+.insta__avatar-img {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    background: url('images/hero-day.jpg') center/cover;
+    border: 3px solid #fff;
+}
+.insta__info { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.insta__handle { font-weight: 800; color: var(--teal-deep); font-size: 1.08rem; }
+.insta__handle:hover { color: #C13584; }
+.insta__name { font-weight: 600; color: #24413f; font-size: 0.95rem; }
+.insta__bio { color: #5c6b6a; font-size: 0.85rem; }
+.insta__followers { font-size: 0.9rem; color: #24413f; margin-top: 2px; }
+.insta__followers strong { color: var(--teal-deep); }
+.insta__btn { margin-top: 14px; align-self: flex-start; padding: 11px 22px; }
+.insta__gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.insta__shot {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    border-radius: 18px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 16px 40px rgba(4, 39, 43, 0.16);
+    display: block;
+    transition: transform .35s var(--ease);
+}
+.insta__shot::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(4, 39, 43, 0.65), transparent 55%);
+}
+.insta__shot span {
+    position: absolute; left: 16px; bottom: 14px; z-index: 1;
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
+    color: #fff; font-size: 1.3rem; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+.insta__shot:hover { transform: translateY(-6px); }
+
+/* Mobil menyu ichidagi tema tugmasi (desktopda yashirin) */
+.nav__theme { display: none; }
+.nav__theme-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: #fff; border-radius: 40px;
+    padding: 11px 20px; cursor: pointer;
+    font-family: inherit; font-weight: 600; font-size: 1rem;
+    transition: background .25s;
+}
+.nav__theme-btn:hover { background: rgba(255, 255, 255, 0.18); }
+.nav__theme-icon { font-size: 1.15rem; }
 
 /* ---------- Tours ---------- */
 .tours { background: var(--bg); }
@@ -534,6 +617,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1
     .license__figure { max-width: 360px; }
     .hero__content { max-width: none; }
     .hero__bg { background-position: 60% center; }
+    .insta__row { grid-template-columns: 1fr; gap: 24px; }
 }
 
 @media (max-width: 760px) {
@@ -554,18 +638,22 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1
     .nav__lang { margin-top: 10px; }
     .nav__toggle { display: flex; z-index: 101; }
     .header__book { display: none; }
+    /* Kun/tun tugmasi tepadan olib tashlanib, menyu (3 chiziq) ichiga o'tadi */
+    .theme-toggle { display: none; }
+    .nav__theme { display: block; margin-top: 6px; }
     .section { padding: 70px 0; }
     .hero__stats { gap: 28px; }
     .stat__num { font-size: 1.9rem; }
-    /* Mobilda matn o'qilishi uchun vertikal qoraytiruvchi qatlam */
+    /* Mobilda matn o'qilishi uchun vertikal qoraytiruvchi qatlam + pastda teal band */
     .hero__scrim {
         background:
-            linear-gradient(to bottom, rgba(3, 26, 26, 0.55) 0%, rgba(3, 26, 26, 0.30) 32%, rgba(3, 26, 26, 0.72) 100%);
+            linear-gradient(to bottom, rgba(4, 39, 43, 0.55) 0%, rgba(4, 39, 43, 0.28) 30%, rgba(4, 39, 43, 0.85) 88%, #04272B 100%);
     }
     [data-theme="dark"] .hero__scrim {
         background:
-            linear-gradient(to bottom, rgba(20, 9, 3, 0.55) 0%, rgba(30, 13, 5, 0.35) 32%, rgba(14, 6, 2, 0.78) 100%);
+            linear-gradient(to bottom, rgba(20, 9, 3, 0.55) 0%, rgba(30, 13, 5, 0.32) 30%, rgba(14, 6, 2, 0.88) 88%, #0b0503 100%);
     }
+    .insta__shot span { font-size: 1.05rem; left: 12px; bottom: 10px; }
 }
 
 @media (max-width: 520px) {

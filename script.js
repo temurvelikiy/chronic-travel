@@ -37,7 +37,11 @@ const I18N = {
         footer_req_addr: "Surxondaryo vil., Denov tumani, Shifokorlar ko'ch., 94A",
         footer_menu_title: "Menyu", footer_social_title: "Ijtimoiy tarmoqlar",
         footer_offer: "Ommaviy oferta", footer_rights: "Barcha huquqlar himoyalangan.",
-        tour_includes: "Narxga kiradi:"
+        tour_includes: "Narxga kiradi:",
+        insta_eyebrow: "Sayohatlarimizni kuzating", insta_title: "Instagram'da biz bilan birga sayohat qiling",
+        insta_bio: "Sayohat videolari • foydali maslahatlar • travel hacking",
+        insta_followers: "<strong>216 ming</strong> kuzatuvchi", insta_follow: "Instagram'da kuzatish",
+        theme_day: "Kun rejimi", theme_night: "Tun rejimi"
     },
     ru: {
         nav_home: "Главная", nav_tours: "Туры", nav_about: "О нас", nav_contact: "Контакты",
@@ -71,7 +75,11 @@ const I18N = {
         footer_req_addr: "Сурхандарья, Денауский р-н, ул. Шифокорлар, 94A",
         footer_menu_title: "Меню", footer_social_title: "Соцсети",
         footer_offer: "Публичная оферта", footer_rights: "Все права защищены.",
-        tour_includes: "В стоимость входит:"
+        tour_includes: "В стоимость входит:",
+        insta_eyebrow: "Следите за нашими путешествиями", insta_title: "Путешествуйте с нами в Instagram",
+        insta_bio: "Видео о путешествиях • полезные советы • travel hacking",
+        insta_followers: "<strong>216 тыс.</strong> подписчиков", insta_follow: "Подписаться в Instagram",
+        theme_day: "Дневной режим", theme_night: "Ночной режим"
     },
     en: {
         nav_home: "Home", nav_tours: "Tours", nav_about: "About", nav_contact: "Contact",
@@ -105,7 +113,11 @@ const I18N = {
         footer_req_addr: "Surkhandarya, Denov district, Shifokorlar st., 94A",
         footer_menu_title: "Menu", footer_social_title: "Social media",
         footer_offer: "Public offer", footer_rights: "All rights reserved.",
-        tour_includes: "Included in the price:"
+        tour_includes: "Included in the price:",
+        insta_eyebrow: "Follow our journeys", insta_title: "Travel with us on Instagram",
+        insta_bio: "Travel videos • useful tips • travel hacking",
+        insta_followers: "<strong>216K</strong> followers", insta_follow: "Follow on Instagram",
+        theme_day: "Day mode", theme_night: "Night mode"
     }
 };
 
@@ -332,16 +344,27 @@ function applyLang(lang) {
     });
 
     renderTours(lang);
+    updateThemeUI();
 
     try { localStorage.setItem('ct_lang', lang); } catch (e) {}
 }
 
 /* ---------- Tema ---------- */
+// Header ikonkasi + menyu ichidagi tugma matnini yangilaydi
+function updateThemeUI() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const t = I18N[currentLang] || I18N.uz;
+    const headIcon = document.querySelector('.theme-toggle__icon');
+    if (headIcon) headIcon.textContent = isDark ? '☀️' : '🌙';
+    const mIcon = document.querySelector('.nav__theme-icon');
+    const mLabel = document.querySelector('.nav__theme-label');
+    if (mIcon) mIcon.textContent = isDark ? '☀️' : '🌙';
+    if (mLabel) mLabel.textContent = isDark ? t.theme_day : t.theme_night;
+}
 function applyTheme(theme) {
     const isDark = theme === 'dark';
     document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-    const icon = document.querySelector('.theme-toggle__icon');
-    if (icon) icon.textContent = isDark ? '☀️' : '🌙';
+    updateThemeUI();
     try { localStorage.setItem('ct_theme', isDark ? 'dark' : 'light'); } catch (e) {}
 }
 
@@ -376,14 +399,15 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => applyLang(btn.dataset.lang));
     });
 
-    /* Tema tugmasi */
+    /* Tema tugmasi (header + mobil menyu ichidagi) */
+    const toggleTheme = () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        applyTheme(isDark ? 'light' : 'dark');
+    };
     const themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            applyTheme(isDark ? 'light' : 'dark');
-        });
-    }
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+    const themeToggleMenu = document.getElementById('themeToggleMenu');
+    if (themeToggleMenu) themeToggleMenu.addEventListener('click', toggleTheme);
 
     /* Mobil menyu */
     const navToggle = document.getElementById('navToggle');
