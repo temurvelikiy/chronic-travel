@@ -321,22 +321,23 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1
 .insta .section__title { color: var(--teal-deep); }
 .insta__eyebrow { color: #b7902a; display: inline-flex; align-items: center; gap: 8px; justify-content: center; }
 .insta__eyebrow svg { color: #C13584; }
-.insta__row {
-    display: grid;
-    grid-template-columns: minmax(300px, 380px) 1fr;
-    gap: 30px;
-    align-items: stretch;
-}
+.insta__row { display: flex; justify-content: center; }
 .insta__card {
     background: #fff;
     border-radius: 22px;
-    padding: 26px;
+    padding: 24px 28px;
     box-shadow: 0 20px 50px rgba(4, 39, 43, 0.12);
     display: flex;
-    gap: 18px;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 22px;
+    align-items: center;
     border: 1px solid rgba(4, 39, 43, 0.06);
+    max-width: 860px;
+    width: 100%;
+    color: inherit;
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease);
 }
+.insta__card:hover { transform: translateY(-4px); box-shadow: 0 26px 60px rgba(4, 39, 43, 0.18); }
 .insta__avatar {
     flex: none;
     width: 88px; height: 88px;
@@ -350,14 +351,14 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1
     background: url('images/hero-day.jpg') center/cover;
     border: 3px solid #fff;
 }
-.insta__info { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-.insta__handle { font-weight: 800; color: var(--teal-deep); font-size: 1.08rem; }
-.insta__handle:hover { color: #C13584; }
+.insta__info { flex: 1; min-width: 155px; display: flex; flex-direction: column; gap: 4px; }
+.insta__handle { font-weight: 800; color: var(--teal-deep); font-size: 1.12rem; }
+.insta__card:hover .insta__handle { color: #C13584; }
 .insta__name { font-weight: 600; color: #24413f; font-size: 0.95rem; }
 .insta__bio { color: #5c6b6a; font-size: 0.85rem; }
 .insta__followers { font-size: 0.9rem; color: #24413f; margin-top: 2px; }
 .insta__followers strong { color: var(--teal-deep); }
-.insta__btn { margin-top: 14px; align-self: flex-start; padding: 11px 22px; }
+.insta__btn { margin: 0 0 0 auto; align-self: center; flex: none; padding: 12px 24px; white-space: nowrap; }
 .insta__gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .insta__shot {
     position: relative;
@@ -654,6 +655,11 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1
             linear-gradient(to bottom, rgba(20, 9, 3, 0.55) 0%, rgba(30, 13, 5, 0.32) 30%, rgba(14, 6, 2, 0.88) 88%, #0b0503 100%);
     }
     .insta__shot span { font-size: 1.05rem; left: 12px; bottom: 10px; }
+}
+
+@media (max-width: 600px) {
+    .insta__btn { flex-basis: 100%; margin: 4px 0 0; }
+    .insta__card { padding: 22px 20px; }
 }
 
 @media (max-width: 520px) {
