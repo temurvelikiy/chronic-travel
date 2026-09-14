@@ -246,13 +246,15 @@ const TOURS = [
 ];
 
 let currentLang = 'uz';
+let ACTIVE_TOURS = TOURS;   // bazadan yuklangач almashadi
+let DB_SETTINGS = {};       // Supabase sozlamalari (matnlar)
 
 /* ---------- Turlarni chizish ---------- */
 function renderTours(lang) {
     const grid = document.getElementById('toursGrid');
     if (!grid) return;
     const t = I18N[lang];
-    grid.innerHTML = TOURS.map(tour => `
+    grid.innerHTML = ACTIVE_TOURS.map(tour => `
         <article class="tour-card" data-reveal data-id="${tour.id}">
             <div class="tour-card__media">
                 <img src="${tour.img}" alt="${tour.title[lang]}" loading="lazy">
@@ -276,7 +278,7 @@ function renderTours(lang) {
 
 /* ---------- Modal ---------- */
 function openModal(id) {
-    const tour = TOURS.find(x => x.id === id);
+    const tour = ACTIVE_TOURS.find(x => x.id === id);
     if (!tour) return;
     const lang = currentLang;
     document.getElementById('modalImg').src = tour.img;
@@ -345,8 +347,46 @@ function applyLang(lang) {
 
     renderTours(lang);
     updateThemeUI();
+    applySettings();
 
     try { localStorage.setItem('ct_lang', lang); } catch (e) {}
+}
+
+/* ---------- Supabase: turlar + sozlamalar ---------- */
+function dbRowToTour(r) {
+    const per = (base) => ({ uz: r[base + '_uz'] || '', ru: r[base + '_ru'] || '', en: r[base + '_en'] || '' });
+    const list = (base) => {
+        const o = {};
+        ['uz', 'ru', 'en'].forEach(l => o[l] = (r[base + '_' + l] || '').split('\n').map(s => s.trim()).filter(Boolean));
+        return o;
+    };
+    return { id: r.id, img: r.image, price: r.price, badge: per('badge'), title: per('title'),
+        place: per('place'), days: per('days'), desc: per('desc'), includes: list('includes') };
+}
+async function loadDynamic() {
+    if (!window.SB) return;
+    try {
+        const [toursRes, setRes] = await Promise.all([
+            window.SB.from('tours').select('*').eq('active', true).order('sort', { ascending: true }),
+            window.SB.from('settings').select('*')
+        ]);
+        if (setRes.data) { DB_SETTINGS = {}; setRes.data.forEach(x => DB_SETTINGS[x.key] = x.value); }
+        if (toursRes.data && toursRes.data.length) {
+            ACTIVE_TOURS = toursRes.data.map(dbRowToTour);
+            renderTours(currentLang);
+        }
+        applySettings();
+    } catch (e) { /* baza yo'q bo'lsa — koddagi turlar ishlatiladi */ }
+}
+// Sozlamalar (telefon, hero matn) ni saytga qo'llaydi
+function applySettings() {
+    const s = DB_SETTINGS;
+    if (s.phone) {
+        const digits = 'tel:+' + s.phone.replace(/\D/g, '');
+        document.querySelectorAll('a[href^="tel:"]').forEach(a => { a.textContent = s.phone; a.setAttribute('href', digits); });
+    }
+    const heroText = s['hero_text_' + currentLang];
+    if (heroText) { const el = document.querySelector('.hero__text'); if (el) el.textContent = heroText; }
 }
 
 /* ---------- Tema ---------- */
@@ -384,6 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (e) {}
     applyTheme(savedTheme);
     applyLang(savedLang);
+    loadDynamic();   // Supabase'dan turlar + matnlarni yuklaydi
 
     /* Header scroll */
     const header = document.getElementById('header');
@@ -571,6 +612,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = nameInput.value.trim();
             const phone = phoneInput.value.trim();
             const tour = tourInput.value.trim();
+            // Buyurtmani admin panel uchun bazaga saqlaymiz (xato bo'lsa ham Telegram ishlayveradi)
+            if (window.SB) {
+                window.SB.from('orders').insert({ name, phone, tour, lang: currentLang }).then(() => {}, () => {});
+            }
             const message = `${t.tg_hello}\n${t.tg_name}: ${name}\n${t.tg_phone}: ${phone}\n${t.tg_tour}: ${tour}`;
             window.open(tgLink(message), '_blank');
 
