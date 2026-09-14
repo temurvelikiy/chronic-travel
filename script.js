@@ -516,6 +516,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    /* Mobil fon slayd-shou (crossfade) */
+    const heroSlides = document.getElementById('heroSlides');
+    if (heroSlides && !reduceMotion) {
+        const slides = heroSlides.querySelectorAll('.hero__slide');
+        if (slides.length > 1) {
+            let idx = 0;
+            setInterval(() => {
+                slides[idx].classList.remove('is-active');
+                idx = (idx + 1) % slides.length;
+                slides[idx].classList.add('is-active');
+            }, 5000);
+        }
+    }
+
     /* Forma */
     const form = document.getElementById('orderForm');
     const success = document.getElementById('formSuccess');
