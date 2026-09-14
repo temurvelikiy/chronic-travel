@@ -251,6 +251,16 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1
     /* Kunduzgi plajni quyosh botishi ohangiga aylantiradi */
     filter: brightness(0.72) saturate(1.42) sepia(0.34) hue-rotate(-14deg) contrast(1.05);
 }
+/* Desktop fon video (ovozsiz, loop) */
+.hero__video {
+    position: absolute; inset: 0; z-index: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+[data-theme="dark"] .hero__video { filter: brightness(0.58) saturate(1.05) contrast(1.02); }
+@media (min-width: 761px) { .hero__bg { display: none; } }  /* desktopda video ko'rinadi */
+
 /* Mobil fon slayd-shou (crossfade + yumshoq zoom) — desktopda yashirin */
 .hero__slides { position: absolute; inset: 0; z-index: 0; display: none; overflow: hidden; }
 .hero__slide {
@@ -665,7 +675,8 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1
         background:
             linear-gradient(to bottom, rgba(20, 9, 3, 0.55) 0%, rgba(30, 13, 5, 0.32) 30%, rgba(14, 6, 2, 0.88) 88%, #0b0503 100%);
     }
-    /* Telefonda: kun rejimida fon slayd-shou, tun rejimida quyosh botishi manzarasi */
+    /* Telefonda: video yashirin, kun rejimida slayd-shou, tun rejimida quyosh botishi manzarasi */
+    .hero__video { display: none; }
     .hero__bg { background-image: url('images/hero-mobile.jpg'); background-position: center; }
     .hero__slides { display: block; }
     .hero__bg { display: none; }
