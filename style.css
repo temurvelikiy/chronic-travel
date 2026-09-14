@@ -648,12 +648,14 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1
     /* Mobilda matn o'qilishi uchun vertikal qoraytiruvchi qatlam + pastda teal band */
     .hero__scrim {
         background:
-            linear-gradient(to bottom, rgba(4, 39, 43, 0.55) 0%, rgba(4, 39, 43, 0.28) 30%, rgba(4, 39, 43, 0.85) 88%, #04272B 100%);
+            linear-gradient(to bottom, rgba(4, 39, 43, 0.62) 0%, rgba(4, 39, 43, 0.46) 42%, rgba(4, 39, 43, 0.82) 84%, #04272B 100%);
     }
     [data-theme="dark"] .hero__scrim {
         background:
             linear-gradient(to bottom, rgba(20, 9, 3, 0.55) 0%, rgba(30, 13, 5, 0.32) 30%, rgba(14, 6, 2, 0.88) 88%, #0b0503 100%);
     }
+    /* Telefonda alohida (portret) home page foni — kun rejimi */
+    .hero__bg { background-image: url('images/hero-mobile.jpg'); background-position: center; }
     .insta__shot span { font-size: 1.05rem; left: 12px; bottom: 10px; }
 }
 
