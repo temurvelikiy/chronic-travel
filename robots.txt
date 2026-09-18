@@ -4,4 +4,4 @@ Disallow: /admin
 Disallow: /admin.html
 Disallow: /admin.js
 
-Sitemap: https://chronic.uz/sitemap.xml
+Sitemap: https://chronictravel.uz/sitemap.xml
