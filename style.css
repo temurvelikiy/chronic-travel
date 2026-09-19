@@ -29,14 +29,14 @@
 }
 
 [data-theme="dark"] {
-    --bg: #021312;
-    --surface: #062625;
-    --surface-2: #0a3231;
+    --bg: #04272B;            /* Emerald (dengiz to'lqini) — asosiy tun foni */
+    --surface: #0a3b38;       /* Kartochkalar — fondan bir oz och */
+    --surface-2: #0e4642;
     --text: #eef4f3;
-    --muted: #9fbab8;
-    --border: rgba(212, 175, 55, 0.14);
-    --section-alt: #041c1b;
-    --shadow: 0 22px 55px rgba(0, 0, 0, 0.6);
+    --muted: #a6c1bd;
+    --border: rgba(212, 175, 55, 0.16);
+    --section-alt: #053430;   /* "Biz haqimizda" — biroz boshqa emerald */
+    --shadow: 0 22px 55px rgba(0, 0, 0, 0.55);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -342,6 +342,16 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1
 .insta .section__title { color: var(--teal-deep); }
 .insta__eyebrow { color: #b7902a; display: inline-flex; align-items: center; gap: 8px; justify-content: center; }
 .insta__eyebrow svg { color: #C13584; }
+/* Tun rejimida Instagram bo'limi ham emerald bo'ladi */
+[data-theme="dark"] .insta { background: var(--section-alt); color: var(--text); }
+[data-theme="dark"] .insta .section__title { color: #fff; }
+[data-theme="dark"] .insta__eyebrow { color: var(--gold); }
+[data-theme="dark"] .insta__card { background: var(--surface); border-color: var(--border); }
+[data-theme="dark"] .insta__handle { color: #fff; }
+[data-theme="dark"] .insta__name { color: #dfeae8; }
+[data-theme="dark"] .insta__bio { color: var(--muted); }
+[data-theme="dark"] .insta__followers { color: #dfeae8; }
+[data-theme="dark"] .insta__followers strong { color: var(--gold); }
 .insta__row { display: flex; justify-content: center; }
 .insta__card {
     background: #fff;
