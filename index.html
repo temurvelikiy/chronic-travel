@@ -52,8 +52,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://wfqhnjmazdtcssdmdkzi.supabase.co">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=12">
+    <link rel="stylesheet" href="style.css?v=13">
 </head>
 <body>
 
@@ -61,7 +64,7 @@
     <header class="header" id="header">
         <div class="container header__inner">
             <a href="#home" class="logo">
-                <img src="images/logo.png?v=2" alt="Chronic Travel" class="logo__img">
+                <img src="images/logo.png?v=3" alt="Chronic Travel" class="logo__img">
             </a>
 
             <nav class="nav" id="nav">
@@ -104,15 +107,15 @@
     <!-- ============ HERO ============ -->
     <section class="hero" id="home">
         <div class="hero__bg" id="heroBg" aria-hidden="true"></div>
-        <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="images/hero-video-poster.jpg" aria-hidden="true">
-            <source src="videos/hero-bg.mp4?v=1" type="video/mp4">
+        <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="images/hero-video-poster.jpg?v=2" aria-hidden="true">
+            <source src="videos/hero-bg.mp4?v=2" type="video/mp4">
         </video>
         <div class="hero__slides" id="heroSlides" aria-hidden="true">
-            <div class="hero__slide is-active" style="background-image:url('images/slide1.jpg')"></div>
-            <div class="hero__slide" style="background-image:url('images/slide2.jpg')"></div>
-            <div class="hero__slide" style="background-image:url('images/slide3.jpg')"></div>
-            <div class="hero__slide" style="background-image:url('images/slide4.jpg')"></div>
-            <div class="hero__slide" style="background-image:url('images/slide5.jpg')"></div>
+            <div class="hero__slide is-active" style="background-image:url('images/slide1.jpg?v=2')"></div>
+            <div class="hero__slide" data-bg="images/slide2.jpg?v=2"></div>
+            <div class="hero__slide" data-bg="images/slide3.jpg?v=2"></div>
+            <div class="hero__slide" data-bg="images/slide4.jpg?v=2"></div>
+            <div class="hero__slide" data-bg="images/slide5.jpg?v=2"></div>
         </div>
         <div class="hero__scrim" aria-hidden="true"></div>
         <div class="container hero__content" id="heroContent">
@@ -209,7 +212,7 @@
 
             <aside class="license" data-reveal>
                 <figure class="license__figure">
-                    <img src="images/litsenziya.png" alt="Chronic Travel guvohnoma / litsenziya" loading="lazy">
+                    <img src="images/litsenziya.jpg" alt="Chronic Travel guvohnoma / litsenziya" loading="lazy">
                     <figcaption class="license__cap">
                         <span data-i18n="lic_cap">Rasmiy guvohnoma</span>
                         <strong>№ 6721665 — STIR: 313 055 675</strong>
@@ -341,6 +344,6 @@
         'sb_publishable_ozlNK2jGpxLnFE19tI1g-Q_RrWFfiAi'
       );
     </script>
-    <script src="script.js?v=11"></script>
+    <script src="script.js?v=12"></script>
 </body>
 </html>

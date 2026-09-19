@@ -242,12 +242,12 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1
     position: absolute;
     inset: -6%;
     z-index: 0;
-    background: url('images/hero-day.jpg') center/cover no-repeat;
+    background: url('images/hero-day.jpg?v=2') center/cover no-repeat;
     transition: transform .4s ease-out;
     will-change: transform;
 }
 [data-theme="dark"] .hero__bg {
-    background-image: url('images/hero-night.jpg');
+    background-image: url('images/hero-night.jpg?v=2');
     /* Kunduzgi plajni quyosh botishi ohangiga aylantiradi */
     filter: brightness(0.72) saturate(1.42) sepia(0.34) hue-rotate(-14deg) contrast(1.05);
 }
@@ -687,7 +687,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1
     }
     /* Telefonda: video yashirin, kun rejimida slayd-shou, tun rejimida quyosh botishi manzarasi */
     .hero__video { display: none; }
-    .hero__bg { background-image: url('images/hero-mobile.jpg'); background-position: center; }
+    .hero__bg { background-image: url('images/hero-mobile.jpg?v=2'); background-position: center; }
     .hero__slides { display: block; }
     .hero__bg { display: none; }
     [data-theme="dark"] .hero__slides { display: none; }

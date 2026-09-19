@@ -557,16 +557,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* Mobil fon slayd-shou (crossfade) */
+    /* Mobil fon slayd-shou (crossfade) — rasmlar kechiktirilib (oldindan) yuklanadi */
     const heroSlides = document.getElementById('heroSlides');
     if (heroSlides && !reduceMotion) {
         const slides = heroSlides.querySelectorAll('.hero__slide');
+        const loadBg = (el) => { if (el && el.dataset.bg) { el.style.backgroundImage = `url('${el.dataset.bg}')`; el.removeAttribute('data-bg'); } };
         if (slides.length > 1) {
             let idx = 0;
+            // Birinchi o'tish silliq bo'lsin — keyingi slaydni 2s dan keyin oldindan yuklaymiz
+            setTimeout(() => loadBg(slides[1]), 2000);
             setInterval(() => {
+                const next = (idx + 1) % slides.length;
                 slides[idx].classList.remove('is-active');
-                idx = (idx + 1) % slides.length;
-                slides[idx].classList.add('is-active');
+                slides[next].classList.add('is-active');
+                idx = next;
+                loadBg(slides[(idx + 1) % slides.length]); // keyingisini oldindan tayyorlaymiz
             }, 5000);
         }
     }
